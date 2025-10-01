@@ -1,8 +1,7 @@
 import sys
-PAGE=5000
 
 def possers(reqs, n):
-    pos = [[] for _ in range(PAGE)]
+    pos = [[] for _ in range(max(reqs)+1)]
     for i in range(n - 1, -1, -1):
         pos[reqs[i]].append(i)
     return pos
