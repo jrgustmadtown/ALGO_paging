@@ -1,11 +1,20 @@
 import sys
+PAGE=100000
+
+def possers(reqs, n):
+    pos = [[] for _ in range(PAGE)]
+    for i in range(n - 1, -1, -1):
+        pos[reqs[i]].append(i)
+    return pos
 
 def paging(ksize, n, reqs):
     faults = 0
     k = []
+    pos = possers(reqs, n)
 
     for i in range(n):
         page = reqs[i]
+        pos[page].pop()
 
         if page in k:
             continue
@@ -15,10 +24,9 @@ def paging(ksize, n, reqs):
         else:
             far = -1
             remove = -1
-            follow = reqs[i+1:]
             for h, p in enumerate(k):
-                if p in follow:
-                    next = follow.index(p)
+                if pos[p]:
+                    next = pos[p][-1]
                 else:
                     next = float('inf')
                 if next > far:
