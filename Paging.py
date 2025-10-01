@@ -1,5 +1,5 @@
 import sys
-PAGE=10000
+PAGE=1000
 
 def possers(reqs, n):
     pos = [[] for _ in range(PAGE)]
