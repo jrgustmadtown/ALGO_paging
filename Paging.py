@@ -40,7 +40,7 @@ for _ in range(t):
     index+=1
     n = int(inputy[index])
     index+=1
-    reqs = inputy[index]
+    reqs = list(map(int, inputy[index].split()))
     index+=1
     outputy.append(paging(ksize, n, list(reqs)))
 
