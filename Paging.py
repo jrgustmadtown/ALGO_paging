@@ -20,7 +20,7 @@ def paging(ksize, n, reqs):
             pagesorts.append(page)
             starts.append(i)
             curr = page
-    pointers = [0] * len(pagesorts)
+    pointers = [0] * len(pagesorts) # ptr to prevent going through full request sequence
     
     #next use index (NUI) for any page - binary search
     def NUI(page, index):
@@ -61,7 +61,7 @@ def paging(ksize, n, reqs):
 
         if len(k) >= ksize:
             while heap:
-                _, p in heapq.heappop(heap)
+                _, p = heapq.heappop(heap)
                 if p in k:
                     k.remove(p)
                     break
