@@ -47,7 +47,7 @@ def paging(ksize, n, reqs):
             idx = nexts[start+ptr][1]
             if idx > index:
                 pointers[page_i] = ptr
-                return index
+                return idx
             ptr+=1
         return float('inf')
     
